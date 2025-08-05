@@ -1,4 +1,7 @@
 export declare type TickerItemType = {
     price: number;
-    ratio: string
-}
+    ratio: string;
+};
+
+declare module 'openai';
+declare module 'sentence-splitter';
