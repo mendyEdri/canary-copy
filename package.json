@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node-esm index.ts",
     "build": "tsc",
-    "test": "npm run build && node dist/promptProcessor.test.js"
+    "test": "npm run build && node dist/promptProcessor.test.js",
+    "deploy": "netlify deploy --build --prod"
   },
   "keywords": [],
   "author": "",
