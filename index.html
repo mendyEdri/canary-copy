@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Prompt Processor</title>
+</head>
+<body>
+  <h1>Prompt Processor</h1>
+  <textarea id="prompt" rows="10" cols="80" placeholder="Enter system prompt here"></textarea><br />
+  <button id="submit">Process</button>
+  <pre id="output"></pre>
+  <script>
+    document.getElementById('submit').addEventListener('click', async () => {
+      const prompt = document.getElementById('prompt').value;
+      const response = await fetch('/process', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt })
+      });
+      const data = await response.json();
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>
